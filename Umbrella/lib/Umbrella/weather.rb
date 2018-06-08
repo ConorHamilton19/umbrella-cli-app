@@ -14,6 +14,6 @@ class Umbrella::Weather
   end 
   
   def self.weather_scrape
-    doc = Nokogiri::HTML(html)
+    doc = Nokogiri::HTML(open())
   end 
 end 
