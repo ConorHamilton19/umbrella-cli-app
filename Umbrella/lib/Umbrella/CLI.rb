@@ -7,7 +7,8 @@ class Umbrella::CLI
     choose
   end 
   
-    def further_prompt
+  
+  def further_prompt
     puts "Would you like to know more about today's weather(y/n):"
     input = gets.chomp.downcase
     if input == "y"
@@ -19,11 +20,12 @@ class Umbrella::CLI
 5) Sunrise/Sunset"
     else 
       puts "Stay dry!"
+      exit 
     end 
   end
   
-    def choose            
-      choice = nil
+  def choose            
+    choice = nil
     while choice != "exit"
       puts "Choose a number or input exit to leave."
             
@@ -45,7 +47,7 @@ class Umbrella::CLI
             else
               puts "Did not understand that commmand. Please choose a number 1-5 or type 'exit' to quit."
             end  
-        end
+      end
   end 
   
 end 
