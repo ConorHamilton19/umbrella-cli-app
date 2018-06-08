@@ -1,2 +1,0 @@
-class Umbrella::WeatherScraper
-end 
