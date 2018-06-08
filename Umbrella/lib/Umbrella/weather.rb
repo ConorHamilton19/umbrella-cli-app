@@ -1,0 +1,2 @@
+class Umbrella::Weather
+end 
