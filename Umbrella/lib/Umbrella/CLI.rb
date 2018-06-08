@@ -17,7 +17,9 @@ class Umbrella::CLI
 2) Temperature
 3) Weather Condition
 4) Wind Speed
-5) Sunrise/Sunset"
+5) Sunrise/Sunset
+
+"
     else 
       puts "Stay dry!"
       exit 
@@ -27,7 +29,7 @@ class Umbrella::CLI
   def choose            
     choice = nil
     while choice != "exit"
-      puts "Choose a number or input exit to leave."
+      puts "Choose a number, type list to see options again or exit to leave."
             
             choice = gets.chomp
             
@@ -44,8 +46,17 @@ class Umbrella::CLI
               puts 'ss'
             when "exit"
               puts "Stay dry!"
+            when "list"
+              puts "
+1) Weather Report
+2) Temperature
+3) Weather Condition
+4) Wind Speed
+5) Sunrise/Sunset
+
+"
             else
-              puts "Did not understand that commmand. Please choose a number 1-5 or type 'exit' to quit."
+              puts "Did not understand that commmand."
             end  
       end
   end 
