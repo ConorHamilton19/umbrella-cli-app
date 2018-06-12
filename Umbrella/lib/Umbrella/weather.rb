@@ -1,9 +1,9 @@
 class Umbrella::Weather
   attr_accessor :temperature, :wind, :sunrise, :sunset, :weather_condition, :rain_perc
   
-  def self.weather_setter
+  def self.weather_setter(location_url)
     
-    doc = Nokogiri::HTML(open("https://weather.com/weather/today/l/Chicago+IL+USIL0225:1:US"))
+    doc = Nokogiri::HTML(open("https://weather.com/weather/today/l/#{location_url}"))
     
     rain = self.new 
     

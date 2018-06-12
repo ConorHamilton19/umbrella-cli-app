@@ -2,14 +2,32 @@ class Umbrella::CLI
   attr_accessor :rain
   
   def call 
-    @rain = Umbrella::Weather.weather_setter
+    choose_location
     gonna_rain
     further_prompt
     choose
   end 
   
+  def choose_location
+      puts "Do you need an Umbrella today in(choose a number):
+          1) Chicago
+          2) New York
+          3) Los Angeles"
+        input = gets.chomp 
+        case input
+        when "1"
+           @rain = Umbrella::Weather.weather_setter("Chicago+IL+USIL0225:1:US")
+        when "2" 
+           @rain = Umbrella::Weather.weather_setter("USNY0996:1:US")
+        when "3"
+          @rain = Umbrella::Weather.weather_setter("USCA0638:1:US")
+        else
+          puts "Please try a number 1-3."
+        end 
+    end 
+  
   def gonna_rain
-    if @rain != "0%"
+    if @rain.rain_perc != "0%"
       puts "Looks like rain is in the forecast, better grab an umbrella! The chance of rain is #{@rain.rain_perc}."
     else
       puts "No rain today! Leave that umbrella at home."
@@ -38,7 +56,7 @@ class Umbrella::CLI
   def choose            
     choice = nil
     while choice != "exit"
-      puts "Choose a number, type list to see options again or exit to leave."
+      puts "Choose a number, type list to see options again, city to change location, or exit to leave."
             
             choice = gets.chomp
             
@@ -69,6 +87,8 @@ class Umbrella::CLI
 5) Sunrise/Sunset
 
 "
+          when "city"
+            call
             else
               puts "Did not understand that commmand."
             end  
