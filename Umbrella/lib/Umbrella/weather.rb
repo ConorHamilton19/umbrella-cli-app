@@ -1,5 +1,5 @@
 class Umbrella::Weather
-  attr_accessor :temperature, :wind, :sunrise_sunset, :weather_condition, :rain_perc
+  attr_accessor :temperature, :wind, :sunrise, :sunset, :weather_condition, :rain_perc
   
   def self.weather_setter
     

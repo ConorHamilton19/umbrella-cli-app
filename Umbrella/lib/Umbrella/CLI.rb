@@ -10,7 +10,7 @@ class Umbrella::CLI
   
   def gonna_rain
     if @rain != "0%"
-      puts "Looks like rain is in the forecast, better grab an umbrella! Chance of rain is #{@rain.rain_perc}."
+      puts "Looks like rain is in the forecast, better grab an umbrella! The chance of rain is #{@rain.rain_perc}."
     else
       puts "No rain today! Leave that umbrella at home."
     end 
@@ -44,15 +44,20 @@ class Umbrella::CLI
             
             case choice
             when "1" 
-              puts "Full report"
+              puts "Weather Report:
+              Temperature- #{@rain.temperature}
+              Condition- #{@rain.weather_condition}
+              Wind- #{@rain.wind}
+              Sunrise- #{@rain.sunrise}, Sunset - #{@rain.sunset}
+              "
             when "2"
-              puts "temp"
+              puts "#{@rain.temperature}"
             when "3"
-              puts "Weather condition"
+              puts "#{@rain.weather_condition}"
             when "4"
-              puts 'wind'
+              puts "#{@rain.wind}"
             when "5"
-              puts 'ss'
+              puts "Sunrise- #{@rain.sunrise}, Sunset - #{@rain.sunset}"
             when "exit"
               puts "Stay dry!"
             when "list"
