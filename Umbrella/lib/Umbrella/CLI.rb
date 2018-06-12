@@ -9,20 +9,24 @@ class Umbrella::CLI
   end 
   
   def choose_location
-      puts "Do you need an Umbrella today in(choose a number):
-          1) Chicago
-          2) New York
-          3) Los Angeles"
-        input = gets.chomp 
+      puts "Do you need an Umbrella today in:(pick a number)"
+      
+        ["Chicago", "New York", "Los Angeles"].each.with_index(1){|a, i| puts "#{i}. #{a}"}
+        
+        input = gets.chomp.downcase 
         case input
         when "1"
            @rain = Umbrella::Weather.weather_setter("Chicago+IL+USIL0225:1:US")
-        when "2" 
+        when "2"
            @rain = Umbrella::Weather.weather_setter("USNY0996:1:US")
         when "3"
           @rain = Umbrella::Weather.weather_setter("USCA0638:1:US")
+        when "exit"
+          puts "Stay dry!"
+          exit 
         else
           puts "Please try a number 1-3."
+          choose_location
         end 
     end 
   
@@ -40,13 +44,12 @@ class Umbrella::CLI
     input = gets.chomp.downcase
     if input == "y"
       puts "
-1) Weather Report
-2) Temperature
-3) Weather Condition
-4) Wind Speed
-5) Sunrise/Sunset
-
-"
+        1) Weather Report
+        2) Temperature
+        3) Weather Condition
+        4) Wind Speed
+        5) Sunrise/Sunset
+                          "
     else 
       puts "Stay dry!"
       exit 
@@ -56,37 +59,49 @@ class Umbrella::CLI
   def choose            
     choice = nil
     while choice != "exit"
-      puts "Choose a number, type list to see options again, city to change location, or exit to leave."
+      puts "Choose a number, type 'list' to see options again, type 'city' to change location, or 'exit' to leave."
             
             choice = gets.chomp
             
             case choice
             when "1" 
+              puts ""
               puts "Weather Report:
               Temperature- #{@rain.temperature}
               Condition- #{@rain.weather_condition}
               Wind- #{@rain.wind}
               Sunrise- #{@rain.sunrise}, Sunset - #{@rain.sunset}
               "
+              puts ""
             when "2"
+              puts ""
               puts "#{@rain.temperature}"
+              puts ""
             when "3"
+              puts ""
               puts "#{@rain.weather_condition}"
+              puts ""
             when "4"
+              puts ""
               puts "#{@rain.wind}"
+              puts ""
             when "5"
+              puts ""
               puts "Sunrise- #{@rain.sunrise}, Sunset - #{@rain.sunset}"
+              puts ""
             when "exit"
+              puts ""
               puts "Stay dry!"
+              puts ""
             when "list"
               puts "
-1) Weather Report
-2) Temperature
-3) Weather Condition
-4) Wind Speed
-5) Sunrise/Sunset
+                1) Weather Report
+                2) Temperature
+                3) Weather Condition
+                4) Wind Speed
+                5) Sunrise/Sunset
 
-"
+                              "
           when "city"
             call
             else
