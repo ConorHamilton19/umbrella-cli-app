@@ -13,5 +13,8 @@ class Umbrella::Weather
     rain.sunrise = doc.search("span.wx-dsxdate")[0].text
     rain.sunset = doc.search("span.wx-dsxdate")[1].text
     rain.rain_perc = doc.search("span.precip-val").first.text
+    
+    rain
+  end 
   
   end 

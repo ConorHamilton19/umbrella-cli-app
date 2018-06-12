@@ -1,10 +1,19 @@
 class Umbrella::CLI 
+  attr_accessor :rain
   
   def call 
-    #need to figure out input for first line.
-    puts "To grab umbrella or not"
+    @rain = Umbrella::Weather.weather_setter
+    gonna_rain
     further_prompt
     choose
+  end 
+  
+  def gonna_rain
+    if @rain != "0%"
+      puts "Looks like rain is in the forecast, better grab an umbrella! Chance of rain is #{@rain.rain_perc}."
+    else
+      puts "No rain today! Leave that umbrella at home."
+    end 
   end 
   
   
