@@ -32,9 +32,13 @@ class Umbrella::CLI
   
   def gonna_rain
     if @rain.rain_perc != "0%"
+      puts ""
       puts "Looks like rain is in the forecast, better grab an umbrella! The chance of rain is #{@rain.rain_perc}."
+      puts ""
     else
+      puts ""
       puts "No rain today! Leave that umbrella at home."
+      puts ""
     end 
   end 
   
@@ -93,6 +97,7 @@ class Umbrella::CLI
               puts ""
               puts "Stay dry!"
               puts ""
+              exit
             when "list"
               puts "
                 1) Weather Report
