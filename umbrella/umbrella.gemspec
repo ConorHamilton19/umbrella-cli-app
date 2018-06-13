@@ -6,8 +6,8 @@ require "Umbrella/version"
 Gem::Specification.new do |spec|
   spec.name          = "umbrella"
   spec.version       = Umbrella::VERSION
-  spec.authors       = ["'Conor Hamilton'"]
-  spec.email         = ["'conhamil19@gmail.com'"]
+  spec.authors       = ["Conor Hamilton"]
+  spec.email         = ["conhamil19@gmail.com"]
 
   spec.summary       = "CLI app to tell if you need an Umbrella today"
   spec.homepage      = "https://github.com/ConorHamilton19/umbrella-cli-app/blob/master/Umbrella/lib/Umbrella.rb"
