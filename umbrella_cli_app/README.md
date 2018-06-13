@@ -7,7 +7,7 @@ Have you ever ran out the door wondering if you need an umbrella? This CLI Data 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'Umbrella'
+gem 'umbrella_cli_app'
 ```
 
 And then execute:
@@ -16,7 +16,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install Umbrella
+    $ gem install umbrella_cli_app
 
 ## Usage
 
