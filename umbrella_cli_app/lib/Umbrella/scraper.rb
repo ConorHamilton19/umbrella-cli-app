@@ -1,5 +1,4 @@
 class Umbrella::Scraper
-    attr_accessor :temperature, :wind, :sunrise, :sunset, :weather_condition, :rain_perc, :city
   
   def self.weather_setter(location_url)
     doc = Nokogiri::HTML(open("https://weather.com/weather/today/l/#{location_url}"))

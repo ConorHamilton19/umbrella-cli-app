@@ -19,7 +19,7 @@ class Umbrella::CLI
           if Umbrella::Weather.find_by_city("Chicago, IL") == nil
            @rain = Umbrella::Scraper.weather_setter("Chicago+IL+USIL0225:1:US")
           else
-            Umbrella::Weather.find_by_city("Chicago, IL")
+           @rain = Umbrella::Weather.find_by_city("Chicago, IL")
           end 
            
         when "2"
