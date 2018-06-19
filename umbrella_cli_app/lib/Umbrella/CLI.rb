@@ -16,11 +16,12 @@ class Umbrella::CLI
         input = gets.chomp.downcase 
         case input
         when "1"
-           @rain = Umbrella::Weather.weather_setter("Chicago+IL+USIL0225:1:US")
+           @rain = Umbrella::Scraper.weather_setter("Chicago+IL+USIL0225:1:US")
+           
         when "2"
-           @rain = Umbrella::Weather.weather_setter("USNY0996:1:US")
+           @rain = Umbrella::Scraper.weather_setter("USNY0996:1:US")
         when "3"
-          @rain = Umbrella::Weather.weather_setter("USCA0638:1:US")
+          @rain = Umbrella::Scraper.weather_setter("USCA0638:1:US")
         when "exit"
           puts "Stay dry!"
           exit 

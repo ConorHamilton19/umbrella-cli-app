@@ -16,6 +16,7 @@ class Umbrella::Scraper
     rain.rain_perc = doc.search("span.precip-val").first.text
     
     rain.save
+    rain 
 
   end 
 end 
