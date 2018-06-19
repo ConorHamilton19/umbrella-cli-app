@@ -11,5 +11,9 @@ class Umbrella::Weather
     @@all
   end 
   
+  def self.find_by_city(city)
+    self.all.find{|a| a.city.name == city}
   end 
+  
+end 
   

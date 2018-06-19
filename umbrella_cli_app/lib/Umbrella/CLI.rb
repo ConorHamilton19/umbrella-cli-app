@@ -11,17 +11,30 @@ class Umbrella::CLI
   def choose_location
       puts "Do you need an Umbrella today in:(pick a number)"
       
-        ["Chicago", "New York", "Los Angeles"].each.with_index(1){|a, i| puts "#{i}. #{a}"}
+        ["Chicago, IL", "New York, NY", "Los Angeles, CA"].each.with_index(1){|a, i| puts "#{i}. #{a}"}
         
         input = gets.chomp.downcase 
         case input
         when "1"
+          if Umbrella::Weather.find_by_city("Chicago, IL") == nil
            @rain = Umbrella::Scraper.weather_setter("Chicago+IL+USIL0225:1:US")
+          else
+            Umbrella::Weather.find_by_city("Chicago, IL")
+          end 
            
         when "2"
+            if Umbrella::Weather.find_by_city("New York, NY") == nil
            @rain = Umbrella::Scraper.weather_setter("USNY0996:1:US")
+            else 
+            @rain = Umbrella::Weather.find_by_city("New York, NY")
+          end
+            
         when "3"
+          if Umbrella::Weather.find_by_city("Los Angeles, CA") == nil
           @rain = Umbrella::Scraper.weather_setter("USCA0638:1:US")
+          else
+          @rain = Umbrella::Weather.find_by_city("Los Angeles, CA")
+        end 
         when "exit"
           puts "Stay dry!"
           exit 
